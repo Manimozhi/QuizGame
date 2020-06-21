@@ -1,0 +1,39 @@
+<div class="ui grid">
+  <div class="row">
+    <div class="text-center thirteen wide column">
+      <h1>Words for Category {{currentCategory}}</h1>
+    </div>
+    <div class="three wide column">
+      <span>Your Score:{{score}} <br />With {{clickCount}} click(s) </span>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container">
+      <div class="text-center">
+        <h2>Select a Translated word that matches </h2>
+        <!-- items being paged -->
+        <!---->
+        <div *ngFor="let item of pagedItems">
+          <h3>{{item.Name}}</h3>
+          <div class="ui three column grid">
+            <div class="column" *ngFor="let answer of answers; let i=index">
+              <div class="btn-group">
+                <button (click)="answerForPage=item.Name;isAnswer(item.Name,answer.Name)" class="btn"
+                        [ngClass]="{'text-large':true,'active':isTheAnswer}"
+                        [style.color]="(answerFound===null)?'default':(isTheAnswer&& answerForPage===answer.Name)?'green':(!isTheAnswer&&answerForPage!=answer.Name)?'red':'default'"
+                        value="{{answer.Name}}" id="{{i+1}}">
+                  <strong>{{answer.TamilWord__c}}</strong>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div ng-show="myVar">
+          <p>answerfound: {{answerFound}},isTheAnswer:{{isTheAnswer}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
