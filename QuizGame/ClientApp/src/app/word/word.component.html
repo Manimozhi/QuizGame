@@ -15,7 +15,7 @@
         <h2>Select a Translated word that matches </h2>
         <!-- items being paged -->
         <!---->
-        <div *ngFor="let item of pagedItems">
+        <div *ngFor="let item of words">
           <h3>{{item.Name}}</h3>
           <div class="ui three column grid">
             <div class="column" *ngFor="let answer of answers; let i=index">

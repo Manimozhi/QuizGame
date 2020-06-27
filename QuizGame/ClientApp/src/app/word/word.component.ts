@@ -6,18 +6,17 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './word.component.html'
 })
 export class WordComponent {
-  public categories: Word[];
+  public words: Word[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<Word[]>(baseUrl + 'words').subscribe(result => {
-      this.categories = result;
+      this.words = result;
     }, error => console.error(error));
   }
 }
 
 interface Word {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+  Id: number;
+  Name: string;
+  TamilWord: "string";
 }

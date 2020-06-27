@@ -2,9 +2,9 @@
 <p *ngIf="!categories"><em>Loading...</em></p>
 <h3 class="ui dividing header">Select a category to Play</h3>
 <div class="col-md-4">
-  <div class="column" *ngFor="let categori of categories">
+  <div  *ngFor="let categori of categories">
       <a [routerLink]="['/word']" [queryParams]="{ category:categori.name}">
-        <div class="jumbotron text-center">
+        <div class="btn btn-info text-center">
           <h2 ng-class="superClass">
             {{categori.name}}
           </h2>
